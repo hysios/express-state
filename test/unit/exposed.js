@@ -343,6 +343,7 @@ describe('Exposed', function () {
             exposed.add('nfn', function fn() {});
             exposed.add('cre', new RegExp('asdf'));
             exposed.add('lre', /asdf/);
+            exposed.add('date', new Date());
 
             evalExposed(exposed);
             expect(window.str).to.equal('string');
@@ -355,6 +356,7 @@ describe('Exposed', function () {
             expect(window.nfn).to.be.a('function');
             expect(window.cre).to.be.a('regexp');
             expect(window.lre).to.be.a('regexp');
+            expect(window.date).to.be.a('date');
         });
 
         it('should assign values to namespaces in order', function () {
